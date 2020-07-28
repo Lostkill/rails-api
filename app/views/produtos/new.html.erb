@@ -1,0 +1,13 @@
+<html>
+  <%= nav_bar brand: "Store", brand_link: root_url  %>
+  <body>
+    <%= form_for Produto.new do |form| %>
+      Nome <input type="text" name="produto[nome]" id="nome"/><br /><br/>
+      Descrição <textarea name="produto[descricao]" id="description"></textarea><br/>
+      Quantidade <input type="number" name="produto[quantidade]" id="qtd"/><br />
+      Preço <input type="number" name="produto[preco]" id="price" step="0.01"/><br/>
+
+      <button type="submit">CRIAR</button>
+    <% end %>
+  </body>
+</html>
