@@ -1,13 +1,38 @@
-<html>
-  <%= nav_bar brand: "Store", brand_link: root_url  %>
-  <body>
-    <%= form_for Produto.new do |form| %>
-      Nome <input type="text" name="produto[nome]" id="nome"/><br /><br/>
-      Descrição <textarea name="produto[descricao]" id="description"></textarea><br/>
-      Quantidade <input type="number" name="produto[quantidade]" id="qtd"/><br />
-      Preço <input type="number" name="produto[preco]" id="price" step="0.01"/><br/>
+<div>
+  <%= form_for Produto.new do |form| %>
+    <div class="row">
+      <div class="col-sm-10">
+        <div class="form-group">
+          <%= form.label :nome %>
+          <%= form.text_field :nome, class:"form-control" %>
+        </div>
+      </div>
+    </div>
 
-      <button type="submit">CRIAR</button>
-    <% end %>
-  </body>
-</html>
+    <div class="row">
+      <div class="col-sm-10">
+        <div class="form-group">
+          <%= form.label :descricao %>
+          <%= form.text_area :descricao, class:"form-control", rows:"4" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="form-group">
+          <%= form.label :quantidade %>
+          <%= form.number_field :quantidade, class:"form-control" %>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="form-group">
+          <%= form.label :preco %>
+          <%= form.number_field :preco, step:0.01, class:"form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <%= form.submit "Criar", class:"btn btn-primary" %>
+  <% end %>
+</div>

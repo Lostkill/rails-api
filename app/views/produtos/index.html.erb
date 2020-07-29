@@ -1,53 +1,49 @@
-<html style="height: 100%;">
-  <%= nav_bar brand: "Store", brand_link: root_url  %>
-  <div class="container">
-    <body>
-        <h3>Produtos</h3>
-        <table class="table table-bordered table-hover">
-          <thead>
-            <tr>
-              <td>Nome</td>
-              <td>Descrição</td>
-              <td>Preço</td>
-              <td>Quantidade</td>
-            </tr>
-          </thead>
-          <tbody>
-            <% @produtos.each do |produto| %>
-              <tr>
-                <td><%= produto.nome %></td>
-                <td><%= produto.descricao %></td>
-                <td>R$ <%= produto.preco %></td>
-                <td><%= produto.quantidade %>qtd</td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+<div>
+  <h3>Produtos</h3>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <td>Nome</td>
+        <td>Descrição</td>
+        <td>Preço</td>
+        <td>Quantidade</td>
+        <td colspan="1">
+      </tr>
+    </thead>
+    <tbody>
+      <% @produtos.each do |produto| %>
+        <tr>
+          <td><%= produto.nome %></td>
+          <td><%= produto.descricao %></td>
+          <td>R$ <%= produto.preco %></td>
+          <td><%= produto.quantidade %>qtd</td>
+          <td><%= link_to "Remover", produto, method: :delete, class:"btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-        <div class="alert alert-success" role="alert">
-          <h4 class="alert-heading">Produto com desconto</h4>
-        </div>
-        <table class="table table-bordered table-hover">
-          <thead>
-            <tr>
-              <td>Nome</td>
-              <td>Descrição</td>
-              <td>Preço</td>
-              <td>Quantidade</td>
-            </tr>
-          </thead>
-          <tbody>
-            <% @produto_discount.each do |produto| %>
-              <tr>
-                <td><%= produto.nome %></td>
-                <td><%= produto.descricao %></td>
-                <td>R$ <%= produto.preco %></td>
-                <td><%= produto.quantidade %>qtd</td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </body>
+  <div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Produto com desconto</h4>
   </div>
-</html>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <td>Nome</td>
+        <td>Descrição</td>
+        <td>Preço</td>
+        <td>Quantidade</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @produto_discount.each do |produto| %>
+        <tr>
+          <td><%= produto.nome %></td>
+          <td><%= produto.descricao %></td>
+          <td>R$ <%= produto.preco %></td>
+          <td><%= produto.quantidade %>qtd</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
